@@ -10,26 +10,26 @@ import Foundation
 import UIKit
 import QuartzCore
 
-class Sketch {
-    class Canvas {
-        let context: CGContextRef
-        init(context: CGContextRef) {
+public class Sketch {
+    public class Canvas {
+        public let context: CGContextRef
+        public init(context: CGContextRef) {
             self.context = context
         }
         
-        func fill(color: UIColor?) {
+        public func fill(color: UIColor?) {
             if let color = color {
                 CGContextSetFillColorWithColor(context, color.CGColor)
             }
         }
         
-        func stroke(color: UIColor?) {
+        public func stroke(color: UIColor?) {
             if let color = color {
                 CGContextSetStrokeColorWithColor(context, color.CGColor)
             }
         }
         
-        func circle(r: Float) {
+        public func circle(r: Float) {
             let radius = CGFloat(r)
             CGContextAddArc(context, radius, radius, radius, 0, CGFloat(2 * M_PI), 0)
             CGContextFillPath(context)
@@ -37,7 +37,7 @@ class Sketch {
         }
     }
     
-    static func draw(size: CGSize, f:(Canvas -> Void) ) -> UIImage? {
+    public static func draw(size: CGSize, f:(Canvas -> Void) ) -> UIImage? {
         UIGraphicsBeginImageContext(size)
         if let context = UIGraphicsGetCurrentContext() {
             let canvas = Canvas(context: context)
