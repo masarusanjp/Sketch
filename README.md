@@ -14,7 +14,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ```Swift
 
 let r: CGFloat = CGFloat(22)
-let image = Sketch.draw(CGSize(width: r * 2, height: r * 2)) { canvas in
+let image:UIImage? = Sketch.draw(CGSize(width: r * 2, height: r * 2)) { canvas in
     canvas.fill(UIColor(white: 1.0, alpha: 1.0))
     canvas.stroke(UIColor(white: 0.6, alpha: 1.0))
     canvas.circle(Float(r))
