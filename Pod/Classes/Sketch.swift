@@ -29,6 +29,10 @@ public class Sketch {
             }
         }
         
+        public func lineWidth(width: Double) {
+            CGContextSetLineWidth(context, CGFloat(width))
+        }
+
         public func circle(r: Float) {
             let radius = CGFloat(r)
             CGContextAddArc(context, radius, radius, radius, 0, CGFloat(2 * M_PI), 0)
