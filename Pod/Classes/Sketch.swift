@@ -46,6 +46,25 @@ public class Sketch {
             CGContextStrokePath(context)
         }
 
+        public func rectangle(size: CGSize) {
+            CGContextAddRect(context, CGRect(origin: CGPoint(x:0, y:0), size: size))
+            CGContextFillPath(context)
+            CGContextStrokePath(context)
+        }
+
+        public func roundedRectangle(size: CGSize, radius: Double) {
+            let r = CGFloat(radius)
+            let midx = size.width / 2.0
+            let midy = size.height / 2.0
+            CGContextMoveToPoint(context, 0, midy)
+            CGContextAddArcToPoint(context, 0, 0, midx, 0, r)
+            CGContextAddArcToPoint(context, size.width, 0, size.width, midy, r)
+            CGContextAddArcToPoint(context, size.width, size.height, midx, size.width, r)
+            CGContextAddArcToPoint(context, 0, size.height, 0, midy, r)
+            CGContextClosePath(context)
+            CGContextDrawPath(context, CGPathDrawingMode.FillStroke)
+        }
+
         public func line(x1: Double, y1: Double, x2: Double, y2: Double) {
             let points = [CGPoint(x: x1, y: y1), CGPoint(x: x2, y: y2)]
             CGContextAddLines(context, points, points.count)
