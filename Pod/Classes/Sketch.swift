@@ -18,15 +18,11 @@ public class Sketch {
         }
         
         public func fill(color: UIColor?) {
-            if let color = color {
-                CGContextSetFillColorWithColor(context, color.CGColor)
-            }
+            CGContextSetFillColorWithColor(context, color?.CGColor)
         }
         
         public func stroke(color: UIColor?) {
-            if let color = color {
-                CGContextSetStrokeColorWithColor(context, color.CGColor)
-            }
+            CGContextSetStrokeColorWithColor(context, color?.CGColor)
         }
 
         public func lineWidth(width: Double) {
@@ -64,7 +60,7 @@ public class Sketch {
             CGContextClosePath(context)
             CGContextDrawPath(context, CGPathDrawingMode.FillStroke)
         }
-
+        
         public func line(x1: Double, y1: Double, x2: Double, y2: Double) {
             let points = [CGPoint(x: x1, y: y1), CGPoint(x: x2, y: y2)]
             CGContextAddLines(context, points, points.count)
