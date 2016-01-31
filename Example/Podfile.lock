@@ -16,6 +16,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 7e85180d0d141a0cf472352edda7e80d7eaeb547
-  Sketch: c55087b2ab85691686bdbd88c3f1bdba343de55b
+  Sketch: c9c9a852d593b6f8f9af73c3fd9cf33f387debf7
 
 COCOAPODS: 0.39.0
