@@ -36,14 +36,22 @@ public class Sketch {
         }
 
         public func circle(r: Float) {
+            circle(r, origin: CGPointZero)
+        }
+
+        public func circle(r: Float, origin: CGPoint) {
             let radius = CGFloat(r)
-            CGContextAddArc(context, radius, radius, radius, 0, CGFloat(2 * M_PI), 0)
+            CGContextAddArc(context, radius + origin.x, radius + origin.y, radius, 0, CGFloat(2 * M_PI), 0)
             CGContextFillPath(context)
             CGContextStrokePath(context)
         }
 
         public func rectangle(size: CGSize) {
-            CGContextAddRect(context, CGRect(origin: CGPoint(x:0, y:0), size: size))
+            rectangle(size, origin: CGPointZero)
+        }
+
+        public func rectangle(size: CGSize, origin: CGPoint) {
+            CGContextAddRect(context, CGRect(origin: origin, size: size))
             CGContextFillPath(context)
             CGContextStrokePath(context)
         }
