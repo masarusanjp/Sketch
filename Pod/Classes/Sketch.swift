@@ -35,6 +35,10 @@ public class Sketch {
             CGContextSetLineDash(context, CGFloat(0.0), lengths, lengths.count)
         }
 
+        public func image(image: UIImage, rect: CGRect) {
+            CGContextDrawImage(context, rect, image.CGImage)
+        }
+
         public func circle(r: Float) {
             circle(r, origin: CGPointZero)
         }
