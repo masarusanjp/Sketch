@@ -78,6 +78,12 @@ public class Sketch {
             CGContextAddLines(context, points, points.count)
             CGContextStrokePath(context)
         }
+        
+        public func path(path: CGPath) {
+            CGContextAddPath(context, path)
+            CGContextFillPath(context)
+            CGContextStrokePath(context)
+        }
     }
     
     public static func draw(size: CGSize, f:(Canvas -> Void) ) -> UIImage? {
