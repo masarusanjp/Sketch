@@ -76,7 +76,24 @@ public class Sketch {
             } catch SketchError.ResourceCreationFail(let functionName){
                 print("Failed to create resource on: \(functionName)")
             } catch {
+                print("unknown error")
+            }
+        }
 
+        public func drawRadialGradient(startCenter: CGPoint, startRadius: Double, endCenter: CGPoint, endRadius: Double, gradient: Gradient) {
+            do {
+                CGContextDrawRadialGradient(
+                    context,
+                    try gradient.createGradient(),
+                    startCenter,
+                    CGFloat(startRadius),
+                    endCenter,
+                    CGFloat(endRadius),
+                    CGGradientDrawingOptions.DrawsAfterEndLocation)
+            } catch SketchError.ResourceCreationFail(let functionName){
+                print("Failed to create resource on: \(functionName)")
+            } catch {
+                print("unknown error")
             }
         }
         
